@@ -1,0 +1,37 @@
+Copyright (c) 2012, Caitlin Sadowski (University of California, Santa Cruz)
+                    and Jaeheon Yi (University of California, Santa Cruz).
+All Rights Reserved.
+
+
+Instructions.
+
+On the command line:
+$ alex Lexer.x
+$ happy Parser.y
+$ runhaskell Main.hs
+---------please enter classname:
+Example
+---------enter contents (followed by ctrl-d):
+rd 1 x
+wr 2 x
+
+
+Explanation.
+A file, named "Example.java", will be generated in the same directory.
+The input trace is repeated verbatim at the top of the file.
+In the input trace listed above, thread 1 reads shared variable x, then
+thread 2 writes to x. Your analysis tool should ignore the CyclicBarrier
+cb and cc in order to not capture the happens-before effects of this
+artificially introduced synchronization.
+
+The java program's package name is hard-coded in Main.hs.
+
+Alex and happy need to be run just once after you make changes to 
+Lexer.x and Parser.y.
+
+
+References.
+Tiddle: A Trace Description Language for Generating Concurrent Benchmarks
+to Test Dynamic Analyses. Caitlin Sadowski, Jaeheon Yi. Workshop on Dynamic
+Analysis (WODA) 2009.
+
